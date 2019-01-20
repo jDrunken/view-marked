@@ -1,0 +1,18 @@
+view-marked.txt view-marked
+view-marked                                                        *view-marked*
+================================================================================
+
+please visit {repository}{1}
+
+                                     {1} https://github.com/jdrunken/view-marked
+
+
+LICENSE                                                    *view-marked-license*
+================================================================================
+follow as vim license
+
+
+
+
+================================================================================
+vim:tw=78:sw=2:ts=2:ft=help:norl:nowrap:
