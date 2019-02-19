@@ -23,9 +23,9 @@ let s:tmpMarkdownAnotherBuffer = '.tmp.md'
 function! s:makeTempMarkdown()
 
     " If Can't write file, delete and re-generate file
-	if !filereadable(s:tmpMarkdown)
-        execute '!rm'.' '.s:tmpMarkdown
-        execute '!touch'.' '.s:tmpMarkdown
+	if filereadable(s:tmpMarkdown)
+        silent execute '!rm'.' '.s:tmpMarkdown
+        silent execute '!touch'.' '.s:tmpMarkdown
 	endif
 
 	try
@@ -36,11 +36,11 @@ function! s:makeTempMarkdown()
 
 	catch /^Vim\%((\a\+)\)\=:E139/
         " case :: if open it another buffer
-		execute '%yank'
-		execute 'sbuffer' fnameescape(s:tmpMarkdownAnotherBuffer)
-		execute	'%d'
+		silent execute '%yank'
+		silent execute 'sbuffer' fnameescape(s:tmpMarkdownAnotherBuffer)
+		silent execute	'%d'
 		$put
-		execute 'save '.s:tmpMarkdown
+		silent execute 'save '.s:tmpMarkdown
 		hide
 	endtry
 endfunction
