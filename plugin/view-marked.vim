@@ -29,10 +29,9 @@ function! s:makeTempMarkdown()
 	endif
 
 	try
-        let lines = join(getline('^', '$'),'\n')
-
+        let lines = join(getline('^', '$'),'\r')
         let lines = substitute(lines, '`', '\\\`', 'g')
-        execute system('echo "'.lines.'" >'.s:tmpMarkdown)
+        execute writefile(getline('^','$'), s:tmpMarkdown, "a")
 
 	catch /^Vim\%((\a\+)\)\=:E139/
         " case :: if open it another buffer
