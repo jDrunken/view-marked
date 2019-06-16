@@ -102,7 +102,7 @@ function! s:quitMarked(path)
 endfunction
 
 function! s:closeMarkdown()
-    if (&ft != "markdown")
+    if (&ft != "markdown" || &ft != "vimwiki")
         return
     endif
 
@@ -117,7 +117,7 @@ endfunction
 
 
 function! s:previewMarkdown()
-    if (&ft != "markdown")
+    if (&ft != "markdown" || &ft != "vimwiki")
         return
     endif
 
