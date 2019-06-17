@@ -77,7 +77,8 @@ endfunction
 " run marked
 function s:openMarked(path)
     let l:filename = a:path
-    silent execute '! open -a Marked\ 2.app -g'.' '.l:filename
+    " silent execute '! open -a Marked\ 2.app -g'.' '.l:filename
+    silent execute '! open -a Marked\ 2.app '.' '.l:filename
     redraw!
 endfunction
 
@@ -102,7 +103,7 @@ function! s:quitMarked(path)
 endfunction
 
 function! s:closeMarkdown()
-    if (&ft != "markdown" || &ft != "vimwiki")
+    if (&ft != "markdown" && &ft != "vimwiki")
         return
     endif
 
@@ -117,7 +118,7 @@ endfunction
 
 
 function! s:previewMarkdown()
-    if (&ft != "markdown" || &ft != "vimwiki")
+    if (&ft != "markdown" && &ft != "vimwiki")
         return
     endif
 
